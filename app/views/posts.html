@@ -1,0 +1,47 @@
+<div ng-model = "PostsCtrl">
+  <div class="container">
+    <div class="row">
+      <div class = "col-lg-8 col-lg-offset-2">
+          <form  name = "postsForm "class = "form-horizontal" ng-submit='postsForm.$valid && addPost()' novalidate>
+            <div class = "form-group">
+              <label class = "col-lg-2 control-label"> Title </label>
+              <div class = "col-lg-10">
+                <input class = "form-control" type = "text" name = "title" ng-model = "post.title" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class = "col-lg-2 control-label"> URL </label>
+              <div class = "col-lg-10">
+                <input class = "form-control" type = "text" name = "url" ng-model = "post.url" required>
+              </div>
+            </div>
+              <button type = "submit" class = "btn btn-primary"> 
+                  <span class = "glyphicon glyphicon-plus"></span>
+              </button>
+          </form>
+        </div>
+    </div>
+  </div>
+
+  <div class="container" id = "posts">
+      <div class="jumbotron">
+          <h2>ANG NEWS POSTS</h2>
+      </div>  
+  <br>
+      <div class="row">
+        <div class = "col-lg-8 col-lg-offset-2">
+          <ul ng-repeat = "post in posts">
+            <li id = "new_post"> 
+                <span>
+                    <strong>{{post.title}}</strong>  |   
+                    <small><a href="{{post.url}}">{{post.url}}</a></small>|
+                    <button class = "btn btn-danger" ng-click = "deletePost($index)">
+                        <span class = "glyphicon glyphicon-minus"></span>
+                    </button>
+                </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </div>
+</div>
